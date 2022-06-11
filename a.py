@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 import bs4
 
-from google.colab import drive
-drive.mount('/content/drive')
-
 #bs4で定義された関数を使ってsample.htmlを読み取る
 soup = bs4.BeautifulSoup(
     open('/content/drive/MyDrive/二重矢板/0a.html', encoding = 'shift-jis'),
