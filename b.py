@@ -1,60 +1,48 @@
 # -*- coding: utf-8 -*-
 import bs4
 
-#bs4で定義された関数を使ってsample.htmlを読み取る
-soup = bs4.BeautifulSoup(
-    open('/content/drive/MyDrive/二重矢板/0b.html', encoding = 'shift-jis'),
-    'html.parser')
+def read_value(a):
 
-#sample.htmlをコンソールに出力
-print(soup)
+  if '******' in a[0]:
+    return ['999.99']
 
-table = soup.find_all('table')
-Support = table[0]  
-print(Support)
+  b = a[0].contents[0]
+  if '≧' in b:
+    c = b.split('≧')
+  elif '＜' in b:
+    c = b.split('＜')
 
-td = Support.find_all('td')
+  # 先・末尾の空白を削除
+  d = list(map(str.strip, c))
 
-# 常時 滑動
-a = td[1].contents
-b = a[0].contents[0]
+  return d
 
-if '≧' in b:
-  c = b.split('≧')
-elif '＜' in b:
-  c = b.split('＜')
 
-print(c[0])
+def read_b(file):
+  #bs4で定義された関数を使ってsample.htmlを読み取る
+  soup = bs4.BeautifulSoup(
+      open(file, encoding = 'shift-jis'),
+      'html.parser')
 
-# 常時 地盤支持力
-a = td[2].contents
-b = a[0].contents[0]
+  table = soup.find_all('table')
+  Support = table[0]  
 
-if '≧' in b:
-  c = b.split('≧')
-elif '＜' in b:
-  c = b.split('＜')
+  td = Support.find_all('td')
 
-print(c[0])
+  # 常時 滑動
+  c = read_value(td[1].contents)
+  re1 = c[0]
 
-# 地震時 滑動
-a = td[4].contents
-b = a[0].contents[0]
+  # 常時 地盤支持力
+  c = read_value(td[2].contents)
+  re2 = c[0]
 
-if '≧' in b:
-  c = b.split('≧')
-elif '＜' in b:
-  c = b.split('＜')
+  # 地震時 滑動
+  c = read_value(td[4].contents)
+  re3 = c[0]
 
-print(c[0])
-
-# 地震時 地盤支持力
-a = td[5].contents
-b = a[0].contents[0]
-
-if '≧' in b:
-  c = b.split('≧')
-elif '＜' in b:
-  c = b.split('＜')
-
-print(c[0])
+  # 地震時 地盤支持力
+  c = read_value(td[5].contents)
+  re4 = c[0]
+  
+  return re1, re2, re3, re4
