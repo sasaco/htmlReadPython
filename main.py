@@ -10,6 +10,7 @@ import glob
 
 file_Path = 'Z:\\result_0'
 error_files = glob.glob("Z:/error_0/*")
+error_numbers =  [os.path.splitext(os.path.basename(file))[0] for file in error_files ]
 
 result_list = [['No',
     'a1', 'a2', 'a3', 'a4', 'a5', 'a6',
@@ -25,7 +26,7 @@ Maximum = 10000
 
 for i in range(Minimum, Maximum + 1):
 
-    if '{}.f7n'.format(i) in error_files:
+    if str(i) in error_numbers:
         continue   # エラーフォルダに番号があったらスキップ
 
     # a 

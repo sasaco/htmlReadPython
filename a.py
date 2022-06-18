@@ -2,6 +2,10 @@
 import bs4
 
 def read_value(a):
+
+  if '******' in a[0]:
+    return ['999.99']
+
   b = a[0].contents[0]
   if '≧' in b:
     c = b.split('≧')
