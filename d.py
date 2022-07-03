@@ -19,10 +19,10 @@ def read_d(file):
   # 常時 安全率　
   a = td[1].contents
 
-  if not '******' in a[0]:
-    return '999.99'
-
   b = a[0].contents[0]
+
+  if '******' in b:
+    return '999.99'
 
   if '≧' in b:
     c = b.split('≧')
