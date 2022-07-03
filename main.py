@@ -21,8 +21,8 @@ result_list = [['No',
     'e6_0', 'e6_1', 'e7_0', 'e7_1', 'e8_0', 'e8_1', 'e9_0', 'e9_1', 'e10_0', 'e10_1', 
     'e11_0', 'e11_1', 'e12_0', 'e12_1']]
 
-Minimum = 0
-Maximum = 10000
+Minimum = 10001
+Maximum = 20000
 
 for i in range(Minimum, Maximum + 1):
 
