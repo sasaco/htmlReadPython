@@ -17,12 +17,12 @@ result_list = [['No',
     'b1', 'b2', 'b3', 'b4',
     'c1', 'c2',
     'd1',
-    'e1_0', 'e1_1', 'e2_0', 'e2_1', 'e3_0', 'e3_1', 'e4_0', 'e4_1', 'e5_0', 'e5_1',
-    'e6_0', 'e6_1', 'e7_0', 'e7_1', 'e8_0', 'e8_1', 'e9_0', 'e9_1', 'e10_0', 'e10_1', 
-    'e11_0', 'e11_1', 'e12_0', 'e12_1']]
+    'e1_0', 'e1_1', 'e2_0', 'e2_1', 'e3_0', 'e3_1', 'e4_0', 'e4_1', 
+    'e5_0', 'e5_1', 'e6_0', 'e6_1', 'e9_0', 'e9_1', 'e10_0', 'e10_1'
+    ]]
 
-Minimum = 0
-Maximum = 20000
+Minimum = 20001
+Maximum = 30000
 
 for i in range(Minimum, Maximum + 1):
 
@@ -62,8 +62,7 @@ for i in range(Minimum, Maximum + 1):
     if not os.path.isfile(file_e):
         continue # フォルダにファイルがなかったらスキップ
     e1_0, e1_1, e2_0, e2_1, e3_0, e3_1, e4_0, e4_1, e5_0, e5_1, \
-    e6_0, e6_1, e7_0, e7_1, e8_0, e8_1, e9_0, e9_1, e10_0, e10_1, \
-    e11_0, e11_1, e12_0, e12_1 = read_e(file_e)
+    e6_0, e6_1, e9_0, e9_1, e10_0, e10_1 = read_e(file_e)
 
     # 集計した結果をリストに収集
     result_list.append([i,
@@ -72,8 +71,8 @@ for i in range(Minimum, Maximum + 1):
     c1, c2,
     d1,
     e1_0, e1_1, e2_0, e2_1, e3_0, e3_1, e4_0, e4_1, e5_0, e5_1,
-    e6_0, e6_1, e7_0, e7_1, e8_0, e8_1, e9_0, e9_1, e10_0, e10_1, 
-    e11_0, e11_1, e12_0, e12_1])
+    e6_0, e6_1, e9_0, e9_1, e10_0, e10_1
+    ])
 
 
 with open("result{}-{}.csv".format(Minimum, Maximum), "w", newline="") as f:

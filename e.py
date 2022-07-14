@@ -33,9 +33,7 @@ def read_e(file):
 
   Stress = table[0] 
   Tensile1 = table[1] 
-  Tensile2 = table[2] 
-  Abdominal1 = table[3] 
-  Abdominal2 = table[4] 
+  Abdominal1 = table[2] 
 
   #print(Stress)
 
@@ -93,26 +91,6 @@ def read_e(file):
   re6_1 = c[1]
 
 
-  """## 引張応力度 2段目"""
-
-  td = Tensile2.find_all('td')
-
-  # 常時 堤内側
-  a = td[0].contents
-  c = read_value(a)
-
-  re7_0 = c[0]  
-  re7_1 = c[1]  
-
-
-  # 地震時 堤内側
-  a = td[1].contents
-  c = read_value(a)
-
-  re8_0 = c[0]  
-  re8_1 = c[1]  
-
-
   """## ■腹起し材応力度 1段目"""
 
   td = Abdominal1.find_all('td')
@@ -133,26 +111,5 @@ def read_e(file):
   re10_1 = c[1]  
 
 
-  """## ■腹起し材応力度 2段目"""
-
-  td = Abdominal2.find_all('td')
-  #print(Abdominal2)
-
-  # 常時 堤内側
-  a = td[0].contents
-  c = read_value(a)
-
-  re11_0 = c[0]  
-  re11_1 = c[1]  
-
-
-  # 地震時 堤内側
-  a = td[1].contents
-  c = read_value(a)
-
-  re12_0 = c[0]  
-  re12_1 = c[1]  
-
   return re1_0, re1_1, re2_0, re2_1, re3_0, re3_1, re4_0, re4_1, re5_0, re5_1, \
-          re6_0, re6_1, re7_0, re7_1, re8_0, re8_1, re9_0, re9_1, re10_0, re10_1, \
-          re11_0, re11_1, re12_0, re12_1
+          re6_0, re6_1, re9_0, re9_1, re10_0, re10_1
