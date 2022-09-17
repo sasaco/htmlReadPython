@@ -4,7 +4,7 @@ import bs4
 def read_value(a):
 
   if '******' in a[0]:
-    return ['999.99']
+    return ['999.99', '1.0']
 
   b = a[0].contents[0]
   if '≧' in b:
@@ -34,12 +34,14 @@ def read_c(file):
   # 常時 地盤支持力
   c = read_value(td[1].contents)
   re1 = c[0]
+  re2 = c[1]
 
   # 地震時 必要長
   a = td[3].contents
 
   # 地震時 地盤支持力
   c = read_value(td[4].contents)
-  re2 = c[0]
+  re3 = c[0]
+  re4 = c[1]
   
-  return re1, re2
+  return re1, re2, re3, re4

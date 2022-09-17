@@ -9,6 +9,9 @@ def read_d(file):
       'html.parser')
 
   table = soup.find_all('table')
+  if len(table) == 0:
+    raise ValueError("error!")
+
   PenetrationPathLength = table[0]  
 
   td = PenetrationPathLength.find_all('td')
@@ -31,6 +34,7 @@ def read_d(file):
 
 
   # 先・末尾の空白を削除
-  re = str.strip(c[0])
+  re1 = str.strip(c[0])
+  re2 = str.strip(c[1])
 
-  return re
+  return re1, re2

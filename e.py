@@ -30,6 +30,8 @@ def read_e(file):
   #print(soup)
 
   table = soup.find_all('table')
+  if len(table) == 0:
+    raise ValueError("error!")
 
   Stress = table[0] 
   Tensile1 = table[1] 

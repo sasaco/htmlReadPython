@@ -25,6 +25,9 @@ def read_b(file):
       'html.parser')
 
   table = soup.find_all('table')
+  if len(table) == 0:
+    raise ValueError("error!")
+    
   Support = table[0]  
 
   td = Support.find_all('td')
